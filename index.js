@@ -94,6 +94,10 @@ class PkgPyFuncs {
       throw new this.serverless.classes.Error(`[serverless-package-python-functions] ${ret.error.message}`)
     }
 
+    if (ret.stdout.length != 0){
+      throw new this.serverless.classes.Error(`[serverless-package-python-functions] ${ret.stdout.toString()}`)
+    }
+
     if (ret.stderr.length != 0){
       throw new this.serverless.classes.Error(`[serverless-package-python-functions] ${ret.stderr.toString()}`)
     }
